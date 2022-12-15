@@ -32,6 +32,7 @@ option = streamlit.selectbox(
  (my_data_row))
 
 selectval = re.findall(r"'(.*?)'", str(option), re.DOTALL)
+streamlit.write(selectval)
 query = "select DISTINCT table_schema from SNOWFLAKE.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS where table_catalog = '"+str(selectval)+"';"
 streamlit.write(query)
 # def get_schema(query):
